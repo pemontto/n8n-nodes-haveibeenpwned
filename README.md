@@ -1,5 +1,7 @@
 # n8n-nodes-haveibeenpwned
 
+![Have I Been Pwned Logo](icons/hibp.svg)
+
 This is an n8n community node for [Have I Been Pwned](https://haveibeenpwned.com/) - check if emails or passwords have been exposed in data breaches.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
