@@ -1,6 +1,6 @@
-# n8n-nodes-haveibeenpwned
+<img src="https://raw.githubusercontent.com/pemontto/n8n-nodes-haveibeenpwned/main/icons/hibp.svg" width="180" alt="Have I Been Pwned Logo" />
 
-![Have I Been Pwned Logo](icons/hibp.svg)
+# n8n-nodes-haveibeenpwned
 
 This is an n8n community node for [Have I Been Pwned](https://haveibeenpwned.com/) - check if emails or passwords have been exposed in data breaches.
 
