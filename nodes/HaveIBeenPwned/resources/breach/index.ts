@@ -3,6 +3,8 @@ import { handleBreachResponse } from '../../GenericFunctions';
 import { getByEmailFields } from './getByEmail';
 import { getByNameFields } from './getByName';
 import { getManyFields } from './getMany';
+import { getByDomainFields } from './getByDomain';
+import { getDataClassesFields } from './getDataClasses';
 
 export const breachOperations: INodeProperties = {
 	displayName: 'Operation',
@@ -70,6 +72,30 @@ export const breachOperations: INodeProperties = {
 				},
 			},
 		},
+		{
+			name: 'Get by Domain',
+			value: 'getByDomain',
+			action: 'Get breached emails for a domain',
+			description: 'Get all breached email addresses on a domain you have verified ownership of',
+			routing: {
+				request: {
+					method: 'GET',
+					url: '=/breacheddomain/{{encodeURIComponent($parameter.domain)}}',
+				},
+			},
+		},
+		{
+			name: 'Get Data Classes',
+			value: 'getDataClasses',
+			action: 'Get all data classes',
+			description: 'Get all data class types that have been exposed in breaches (e.g., email addresses, passwords, usernames)',
+			routing: {
+				request: {
+					method: 'GET',
+					url: '/dataclasses',
+				},
+			},
+		},
 	],
 	default: 'getByEmail',
 };
@@ -78,4 +104,6 @@ export const breachFields: INodeProperties[] = [
 	...getByEmailFields,
 	...getByNameFields,
 	...getManyFields,
+	...getByDomainFields,
+	...getDataClassesFields,
 ];

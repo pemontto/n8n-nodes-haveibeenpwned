@@ -1,6 +1,10 @@
 import { NodeConnectionTypes, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
 import { breachOperations, breachFields } from './resources/breach';
 import { pwnedPasswordsOperations, pwnedPasswordsFields } from './resources/pwnedPasswords';
+import { pasteOperations, pasteFields } from './resources/paste';
+import { stealerLogOperations, stealerLogFields } from './resources/stealerLog';
+import { domainOperations, domainFields } from './resources/domain';
+import { subscriptionOperations, subscriptionFields } from './resources/subscription';
 
 export class HaveIBeenPwned implements INodeType {
 	description: INodeTypeDescription = {
@@ -23,7 +27,7 @@ export class HaveIBeenPwned implements INodeType {
 				required: false,
 				displayOptions: {
 					show: {
-						resource: ['breach'],
+						resource: ['breach', 'paste', 'stealerLog', 'domain', 'subscription'],
 					},
 				},
 			},
@@ -46,8 +50,24 @@ export class HaveIBeenPwned implements INodeType {
 						value: 'breach',
 					},
 					{
+						name: 'Domain',
+						value: 'domain',
+					},
+					{
 						name: 'Password',
 						value: 'pwnedPasswords',
+					},
+					{
+						name: 'Paste',
+						value: 'paste',
+					},
+					{
+						name: 'Stealer Log',
+						value: 'stealerLog',
+					},
+					{
+						name: 'Subscription',
+						value: 'subscription',
 					},
 				],
 				default: 'breach',
@@ -56,6 +76,14 @@ export class HaveIBeenPwned implements INodeType {
 			...breachFields,
 			pwnedPasswordsOperations,
 			...pwnedPasswordsFields,
+			pasteOperations,
+			...pasteFields,
+			stealerLogOperations,
+			...stealerLogFields,
+			domainOperations,
+			...domainFields,
+			subscriptionOperations,
+			...subscriptionFields,
 		],
 	};
 }
